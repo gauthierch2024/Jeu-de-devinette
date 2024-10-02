@@ -1,0 +1,37 @@
+
+"""
+programme fait par : Charles Gauthier
+groupe : 404
+description : jeu de devinette
+"""
+
+
+import random as r
+def start(y, z):
+    y = r.randint(1, 1000)
+    minimal = 1000
+    maximal =0
+    print("un nombre de 1 à 1000 a ete choisi.\n devine le")
+    essaie(y, z)
+def essaie(y, z):
+    z += 1
+    v = int(input("essayer un nombre"))
+    if v > y:
+        print("oups, le nombre est plus petit")
+        essaie(y, z)
+    elif v < y:
+        print("oups, le nombre est plus grand")
+        essaie(y, z)
+    elif v == y:
+        print("Bonne réponse \nnombre d'essaie:", z)
+        r = input("Quit? y/n")
+        if r == "n":
+            start(y, z)
+        else:
+            print("bye")
+            quit()
+    else:
+        print("erreur")
+        essaie(y, z)
+
+start(0, 0)
